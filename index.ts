@@ -63,7 +63,7 @@ const createMiddleMoveFromCharInfo = async ({ name, expressions }: ICharInfo) =>
 
 const main = async () => {
   console.log("欢迎使用林彼丢开发的Renpy帧动画转webm工具");
-  console.log("项目链接：https://github.com/libudu/renpy-frame2webm")
+  console.log("项目链接：https://github.com/libudu/renpy-frame2webm\n")
   const charInfoList = await extractCharacterExpressions();
   for(let charInfo of charInfoList) {
     console.log(`开始处理角色 ${charInfo.name}`)
