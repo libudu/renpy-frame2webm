@@ -41,7 +41,9 @@ const createMiddleMoveFromCharInfo = async ({ name, expressions }: ICharInfo) =>
     }
     // 产物目录，先尝试清空再尝试创建
     const outputCharaterDir = path.join(WEBM_RESULT_DIR, name);
-    await fs.rm(outputCharaterDir, { recursive: true });
+    try {
+      await fs.rm(outputCharaterDir, { recursive: true });
+    } catch (error) {}
     await fs.mkdir(outputCharaterDir, { recursive: true })
     // 输出文件的前缀
     const outputFilePredix = path.join(WEBM_RESULT_DIR, name, exp);
@@ -60,12 +62,15 @@ const createMiddleMoveFromCharInfo = async ({ name, expressions }: ICharInfo) =>
 };
 
 const main = async () => {
+  console.log("欢迎使用林彼丢开发的Renpy帧动画转webm工具");
+  console.log("项目链接：https://github.com/libudu/renpy-frame2webm")
   const charInfoList = await extractCharacterExpressions();
   for(let charInfo of charInfoList) {
     console.log(`开始处理角色 ${charInfo.name}`)
     await createMiddleMoveFromCharInfo(charInfo);
   }
   console.log("所有内容处理完毕，请关闭程序");
+  process.openStdin();
 };
 
 main();

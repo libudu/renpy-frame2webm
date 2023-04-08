@@ -1,5 +1,7 @@
 node_modules
 
+/ts_dist
+/dist
+
 /img_source
-/webm_middle
 /webm_result
