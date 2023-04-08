@@ -15,5 +15,8 @@
     "pkg": "^5.8.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "json5": "^2.2.3"
   }
 }
